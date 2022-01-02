@@ -3,6 +3,7 @@ import 'package:flutter_application_3/constants.dart';
 import 'package:flutter_application_3/pages/home_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterFinished extends StatelessWidget {
   const RegisterFinished({Key? key}) : super(key: key);
@@ -60,9 +61,12 @@ class RegisterFinished extends StatelessWidget {
                   Align(
                     alignment: Alignment.center,
                     child: ElevatedButton(
-                      onPressed: () {
-                        Get.to(() => const HomeScreen(),
+                      onPressed: () async {
+                        Get.off(() => const HomeScreen(),
                             transition: Transition.cupertino);
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        prefs.setBool('isFirst', false);
                       },
                       child: Text("다음",
                           style: Theme.of(context).textTheme.button?.copyWith(

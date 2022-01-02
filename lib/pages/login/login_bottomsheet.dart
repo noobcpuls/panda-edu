@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_3/constants.dart';
 import 'package:flutter_application_3/pages/home_screen.dart';
 import 'package:get/get.dart';
-import 'package:figma_squircle/figma_squircle.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginSheet extends StatelessWidget {
   const LoginSheet({Key? key}) : super(key: key);
@@ -84,8 +84,12 @@ class LoginSheet extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: ElevatedButton(
-                      onPressed: () {
-                        Get.to(() => const HomeScreen());
+                      onPressed: () async {
+                        Get.to(() => const HomeScreen(),
+                            transition: Transition.cupertino);
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        prefs.setBool('isFirst', false);
                       },
                       child: const Text("로그인"),
                       style: ElevatedButton.styleFrom(
@@ -93,8 +97,7 @@ class LoginSheet extends StatelessWidget {
                           elevation: 0.0,
                           primary: subColor,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(11))
-                              )),
+                              borderRadius: BorderRadius.circular(11)))),
                 )
               ],
             ),

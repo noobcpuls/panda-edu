@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/constants.dart';
 import 'package:flutter_application_3/pages/login/register_password.dart';
-import 'package:flutter_application_3/pages/preview_screen.dart';
 import 'package:get/get.dart';
 
 class RegisterID extends StatelessWidget {
