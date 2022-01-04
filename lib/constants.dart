@@ -10,3 +10,6 @@ const Color subColor3 = Color(0xff3dccc7);
 const Color greyColor = Color(0xffe5e5e5);
 const Color bottomSheetColor = Color(0xFFedf2f4);
 const Color subTextColor2 = Color(0xFF6c757d);
+const Color whiteColor = Color(0xfff8f9fa);
+
+
